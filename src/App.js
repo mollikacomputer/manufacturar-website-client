@@ -5,10 +5,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import PrivateRoute from "./Authentication/PrivateRoute";
-import AdminRoute from "./Routes/AdminRoute";
+// import AdminRoute from "./Routes/AdminRoute";
 import Dashboard from "./Dashboard/Dashboard";
 import { publicRoutes } from "./Routes/publicRoutes";
 import { privateRoutes } from "./Routes/privateRoutes";
+import AddService from "./Dashboard/AddService";
+import AddAdmin from "./Dashboard/AddAdmin";
 
 function App() {
   // for animation
@@ -32,9 +34,12 @@ function App() {
             ))}
           </Route>
 
-          <Route element={<AdminRoute />}>
-            <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard/>} >
+            <Route index element={<AddService/>} ></Route>
+            <Route path="addservice" element={<AddService/>} />
+            <Route path='addadmin' element={<AddAdmin/>} ></Route>
           </Route>
+              
 
         </Routes>
       </Navbar>
