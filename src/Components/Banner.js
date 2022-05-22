@@ -9,7 +9,6 @@ const Banner = () => {
         data-aos-offset="200"
           data-aos-delay="2000"
           data-aos-duration="1000"
-
           src="https://api.lorem.space/image/movie?w=260&h=400"
           className="max-w-sm rounded-lg shadow-2xl" alt="banner-img"
         />

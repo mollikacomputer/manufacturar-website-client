@@ -39,7 +39,6 @@ function App() {
             <Route path="addservice" element={<AddService/>} />
             <Route path='addadmin' element={<AddAdmin/>} ></Route>
           </Route>
-              
 
         </Routes>
       </Navbar>
