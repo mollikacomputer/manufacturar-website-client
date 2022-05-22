@@ -1,44 +1,41 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import About from "./Pages/About";
-import Home from "./Pages/Home/Home";
-import Login from "./Pages/Login";
-import Service from "./Pages/Service";
 // animation
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useEffect } from "react";
 import PrivateRoute from "./Authentication/PrivateRoute";
 import AdminRoute from "./Routes/AdminRoute";
 import Dashboard from "./Dashboard/Dashboard";
-
+import { publicRoutes } from "./Routes/publicRoutes";
+import { privateRoutes } from "./Routes/privateRoutes";
 
 function App() {
-  
   // for animation
   useEffect(() => {
     AOS.init();
-  } ,[])
+  }, []);
 
   return (
-    <div >
+    <div>
       <Navbar>
         <Routes>
           {/* Publick route */}
-          <Route path="/" element={<Home/>} ></Route>
-          <Route path="/login" element={<Login/>} ></Route>
+          {publicRoutes.map(({ path, Component }, index) => (
+            <Route key={index} path={path} element={<Component />} />
+          ))}
 
           {/* Private route */}
-          <Route element={<PrivateRoute/>} >
-          <Route path="/about" element={<About/>} ></Route>
-          <Route path="/service" element={<Service/>} >
+          <Route element={<PrivateRoute />}>
+            {privateRoutes.map(({ path, Component }, index) => (
+              <Route key={index} path={path} element={<Component />} />
+            ))}
           </Route>
 
+          <Route element={<AdminRoute />}>
+            <Route path="/dashboard" element={<Dashboard />} />
           </Route>
 
-          <Route element={<AdminRoute/>} >
-            <Route path="/dashboard" element={<Dashboard/>} />
-          </Route>
         </Routes>
       </Navbar>
     </div>
