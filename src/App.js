@@ -11,6 +11,7 @@ import { publicRoutes } from "./Routes/publicRoutes";
 import { privateRoutes } from "./Routes/privateRoutes";
 import AddService from "./Dashboard/AddService";
 import AddAdmin from "./Dashboard/AddAdmin";
+import PageNotFound from "./Components/PageNotFound";
 
 function App() {
   // for animation
@@ -40,6 +41,8 @@ function App() {
             <Route path='addadmin' element={<AddAdmin/>} ></Route>
           </Route>
 
+          <Route path="*" element={<PageNotFound/>} ></Route>
+          
         </Routes>
       </Navbar>
     </div>
