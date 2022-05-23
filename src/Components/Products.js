@@ -64,7 +64,7 @@ const Products = () => {
     console.log(products);
     return (
         <div>
-            <h2 className='text-5xl' > Products {products.length} </h2>
+            <h2 className='text-5xl' > Total Product {products.length} </h2>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-16" >
             {
                 products.map( product => <Product

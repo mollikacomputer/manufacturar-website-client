@@ -12,6 +12,7 @@ import { privateRoutes } from "./Routes/privateRoutes";
 import AddService from "./Dashboard/AddService";
 import AddAdmin from "./Dashboard/AddAdmin";
 import PageNotFound from "./Components/PageNotFound";
+import AddProduct from "./Dashboard/AddProduct";
 
 function App() {
   // for animation
@@ -39,6 +40,7 @@ function App() {
             <Route index element={<AddService/>} ></Route>
             <Route path="addservice" element={<AddService/>} />
             <Route path='addadmin' element={<AddAdmin/>} ></Route>
+            <Route path="addproduct" element={<AddProduct/>} />
           </Route>
 
           <Route path="*" element={<PageNotFound/>} ></Route>
