@@ -36,6 +36,11 @@ const Navbar = ({ children }) => {
           Login
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/register" className="rounded-lg">
+          Register
+        </NavLink>
+      </li>
       <li className="dropdown dropdown-hover dropdown-end">
         <label tabindex="0" class="btn btn-primary btn-outline rounded-lg ">
           BOOK NOW

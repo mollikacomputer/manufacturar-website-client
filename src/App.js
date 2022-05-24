@@ -13,6 +13,7 @@ import AddService from "./Dashboard/AddService";
 import AddAdmin from "./Dashboard/AddAdmin";
 import PageNotFound from "./Components/PageNotFound";
 import AddProduct from "./Dashboard/AddProduct";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   // for animation
@@ -25,9 +26,11 @@ function App() {
       <Navbar>
         <Routes>
           {/* Publick route */}
-          {publicRoutes.map(({ path, Component }, index) => (
+          {
+          publicRoutes.map(({ path, Component }, index) => (
             <Route key={index} path={path} element={<Component />} />
-          ))}
+          ))
+          }
 
           {/* Private route */}
           <Route element={<PrivateRoute />}>
@@ -42,7 +45,7 @@ function App() {
             <Route path='addadmin' element={<AddAdmin/>} ></Route>
             <Route path="addproduct" element={<AddProduct/>} />
           </Route>
-
+            
           <Route path="*" element={<PageNotFound/>} ></Route>
           
         </Routes>
