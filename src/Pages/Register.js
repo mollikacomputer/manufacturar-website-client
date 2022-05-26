@@ -25,6 +25,7 @@ const Register = () => {
   const handlePasswordBlur = (e) => {
     setPassword(e.target.value);
   };
+
   // console.log(username, password, email);
   const handleSubmit = (e) => {
     e.preventDefault();

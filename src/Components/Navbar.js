@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
+import useCustomUser from "../Hooks/useCustomUser";
+
 
 const Navbar = ({ children }) => {
+  const [user] = useCustomUser();
+  
   const [dark, setDark] = useState(false);
   const [admin] = useAdmin();
   const naveItem = (
@@ -32,9 +36,10 @@ const Navbar = ({ children }) => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/login" className="rounded-lg">
-          Login
-        </NavLink>
+        {
+          user ? <NavLink to="/login" className="rounded-lg">Login</NavLink> :
+          <NavLink to="/login" className="rounded-lg">Login</NavLink>
+        }
       </li>
       <li>
         <NavLink to="/register" className="rounded-lg">
@@ -78,6 +83,7 @@ const Navbar = ({ children }) => {
       </label>
     </>
   );
+
   return (
     <div className="drawer drawer-end" data-theme={dark ? "dark" : "light"}>
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
