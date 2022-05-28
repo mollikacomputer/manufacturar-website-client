@@ -12,10 +12,11 @@ import { privateRoutes } from "./Routes/privateRoutes";
 import AddService from "./Dashboard/AddService";
 import AddAdmin from "./Dashboard/AddAdmin";
 import PageNotFound from "./Components/PageNotFound";
-import AddProducts from "./Dashboard/AddProducts";
 import "react-toastify/dist/ReactToastify.css";
 import AdminRoute from "./Hooks/AdminRoute";
 import ProtectedByAdmin from "./Authentication/ProtectedByAdmin";
+import AddNewProduct from "./Components/AddNewProduct";
+import ManageProducts from "./Dashboard/ManageProducts";
 
 function App() {
   // for animation
@@ -28,9 +29,12 @@ function App() {
       <Navbar>
         <Routes>
           {/* Publick route */}
-          {publicRoutes.map(({ path, Component }, index) => (
+          {
+          publicRoutes.map(({ path, Component }, index) => (
             <Route key={index} path={path} element={<Component />} />
-          ))}
+          ))
+          
+          }
 
           {/* Private route */}
           <Route element={<ProtectedRoute/>}>
@@ -43,7 +47,8 @@ function App() {
               <Route index element={<AddService />}></Route>
               <Route path="addservice" element={<AddService />} />
               <Route path="addadmin" element={<AddAdmin />}></Route>
-              <Route path="addproducts" element={<AddProducts />} />
+              <Route path="manageproducts" element={<ManageProducts />} />
+              <Route path="addnewproduct" element={<AddNewProduct />} />
             </Route>
           </Route>
 

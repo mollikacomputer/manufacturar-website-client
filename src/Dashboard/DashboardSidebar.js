@@ -18,8 +18,12 @@ const DashboardSidebar = () => {
           </li>
           <li>
             <NavLink to="/dashboard/addadmin" >Add Admin</NavLink>
-          </li><li>
-            <NavLink to="/dashboard/addproducts" >Add Product</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/manageproducts" >Manage Products</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/addnewproduct" >Add New Product</NavLink>
           </li>
         </ul>
       </div>

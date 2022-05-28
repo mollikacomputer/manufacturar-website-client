@@ -3,7 +3,7 @@ import fetcher from "../api";
 import Product from "../Components/Product";
 import AddProduct from "./AddProduct";
 
-const AddProducts = () => {
+const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetcher.get("/products").then((res) => setProducts(res.data));
@@ -39,4 +39,4 @@ const AddProducts = () => {
   );
 };
 
-export default AddProducts;
+export default ManageProducts;
