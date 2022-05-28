@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Product from './Product';
-
+import fetcher from '../api';
 
 const Products = () => {
+
+  const [products, setProducts] = useState([]);
+   useEffect( () =>{
+    fetcher.get("/products").then((res) => setProducts(res.data));
+   } ,[]);
    
-  const products =  [
-        {
+    console.log(products);
+
+    return (
+        <div>
+            <h2 className='text-5xl' > Total Product {products.length} </h2>
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-16" >
+            {
+                products.map( product => <Product
+                key={product.id}
+                product = {product}
+                > </Product> )
+            }
+            </div>
+        </div>
+    );
+};
+export default Products;
+
+
+/*     
+  const products =  [    {
           "_id": "628a5638bbc1bb492726b1d6",
           "name": "Wheel",
           "picture": "http://placehold.it/32x32",
@@ -59,23 +83,4 @@ const Products = () => {
           "orderqty": "72f5a032-3972-4106-8705-abf0acff8ee2",
           "price": "1040b577-ef9e-4cb7-bbc8-cfd08a17871f"
         }
-      ] 
-
-    console.log(products);
-    return (
-        <div>
-            <h2 className='text-5xl' > Total Product {products.length} </h2>
-            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-16" >
-            {
-                products.map( product => <Product
-                key={product.id}
-                product = {product}
-                > </Product> )
-            }
-            </div>
-            
-        </div>
-    );
-};
-
-export default Products;
+      ]  */

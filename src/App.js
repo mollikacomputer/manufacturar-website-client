@@ -7,13 +7,15 @@ import { useEffect } from "react";
 // import AdminRoute from "./Routes/AdminRoute";
 import Dashboard from "./Dashboard/Dashboard";
 import { publicRoutes } from "./Routes/publicRoutes";
+import ProtectedRoute from "./Authentication/ProtectedRoute";
 import { privateRoutes } from "./Routes/privateRoutes";
 import AddService from "./Dashboard/AddService";
 import AddAdmin from "./Dashboard/AddAdmin";
 import PageNotFound from "./Components/PageNotFound";
-import AddProduct from "./Dashboard/AddProduct";
+import AddProducts from "./Dashboard/AddProducts";
 import "react-toastify/dist/ReactToastify.css";
-import AdminRoute from "./Routes/AdminRoute";
+import AdminRoute from "./Hooks/AdminRoute";
+import ProtectedByAdmin from "./Authentication/ProtectedByAdmin";
 
 function App() {
   // for animation
@@ -31,17 +33,17 @@ function App() {
           ))}
 
           {/* Private route */}
-          <Route element={<privateRoutes />}>
+          <Route element={<ProtectedRoute/>}>
             {privateRoutes.map(({ path, Component }, index) => (
               <Route key={index} path={path} element={<Component />} />
             ))}
           </Route>
-          <Route element={<AdminRoute />}>
-            <Route path="/dashboard" element={<Dashboard />}>
+          <Route element={<ProtectedByAdmin/>}>
+            <Route path="dashboard" element={<Dashboard />}>
               <Route index element={<AddService />}></Route>
               <Route path="addservice" element={<AddService />} />
               <Route path="addadmin" element={<AddAdmin />}></Route>
-              <Route path="addproduct" element={<AddProduct />} />
+              <Route path="addproducts" element={<AddProducts />} />
             </Route>
           </Route>
 
