@@ -13,8 +13,7 @@ const Comments = () => {
       <div class="card bg-base-100 shadow-xl p-4">
         <div>
           <p className="text-left">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
-            nostrum.
+           Seat Belt is awesome i can buy from again when we need.
           </p>
         </div>
         <div className="flex">
@@ -25,15 +24,14 @@ const Comments = () => {
           </div>
           <div class="card-body text-left align-middle">
             <h2 class="card-title"> Mr. Williams Henry</h2>
-            <p> very good experience </p>
+            <p> Austin, Texas </p>
           </div>
         </div>
       </div>
       <div class="card bg-base-100 shadow-xl p-4">
         <div>
           <p className="text-left">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
-            nostrum.
+            Good job and product. Delivery time and management and product is awesome. come back again
           </p>
         </div>
         <div className="flex">
@@ -44,7 +42,7 @@ const Comments = () => {
           </div>
           <div class="card-body text-left align-middle">
             <h2 class="card-title"> Mr. Williams Henry</h2>
-            <p> very good experience </p>
+            <p> Dallas, Texas </p>
           </div>
         </div>
       </div>
@@ -63,7 +61,7 @@ const Comments = () => {
           </div>
           <div class="card-body text-left align-middle">
             <h2 class="card-title"> Mr. Williams Henry</h2>
-            <p> very good experience </p>
+            <p> San francisco, Ca </p>
           </div>
         </div>
       </div>

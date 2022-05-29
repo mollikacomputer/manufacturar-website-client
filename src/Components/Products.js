@@ -7,7 +7,7 @@ const Products = () => {
 
   const [products, setProducts] = useState([]);
    useEffect( () =>{
-    fetcher.get("/products").then((res) => setProducts(res.data));
+    fetcher.get("/products").then((res) => setProducts(res.data.slice(0,6)));
    } ,[]);
    
     console.log(products);

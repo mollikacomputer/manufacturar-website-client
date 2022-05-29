@@ -22,7 +22,7 @@ const AddNewProduct = () => {
       price,
     };
 
-    fetch("http://localhost:5000/products", {
+    fetch("https://ancient-ocean-03919.herokuapp.com/products", {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

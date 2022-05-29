@@ -6,7 +6,7 @@ import ManageProduct from "./ManageProduct";
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/products/')
+    fetch('https://ancient-ocean-03919.herokuapp.com/products/')
     .then(res => res.json())
     .then(data => setProducts(data))
   }, []);
@@ -15,7 +15,7 @@ const ManageProducts = () => {
     const proceed = window.confirm('Are you sure you want to delete Product?');
     if(proceed){
       console.log('deleting product with id', id);
-      const url = `http://localhost:5000/products/${id}`;
+      const url = `https://ancient-ocean-03919.herokuapp.com/products/${id}`;
       fetch(url, {
         method: 'DELETE'
       })
