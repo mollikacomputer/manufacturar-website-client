@@ -8,7 +8,15 @@ const useToken = user =>{
         if(email){
             fetch(`http://localhost:5000/user/${email}`, {
                 method: 'PUT',
-            } )
+                header:{
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(currentUser)
+            })
+            .then(res=> res.json())
+            .then(data => {
+                console.log('data inside useToken', data);
+            })
         }
     },[user]);
     return [token];

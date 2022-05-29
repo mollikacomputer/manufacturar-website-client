@@ -46,6 +46,11 @@ const Navbar = ({ children }) => {
           Register
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/blog" className="rounded-lg">
+          Blog
+        </NavLink>
+      </li>
       
       <label class="swap swap-rotate">
         <input type="checkbox" onClick={() => setDark(!dark)} />
