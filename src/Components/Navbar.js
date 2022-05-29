@@ -104,7 +104,7 @@ const Navbar = ({ children }) => {
             </label>
           )}
           </div>
-          <div className="flex-1 px-2 mx-2 text-2xl"> Car Parts consumer </div>
+          <div className="flex-1 px-2 mx-2 text-2xl"> Car Parts Co. </div>
           <div className="flex-none lg:hidden">
             <label for="my-drawer-3" className="btn btn-square btn-ghost">
               <svg
