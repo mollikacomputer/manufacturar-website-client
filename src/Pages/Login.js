@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import app from "../firebase.init";
 import GoogleIcon from '../../src/Assets/socielIcon/google.png';
 import { ToastContainer, toast } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+
 
 const auth = getAuth(app);
 
@@ -79,11 +79,14 @@ const Login = () => {
                 :<button class="btn btn-primary mb-2">Login</button>
 
               }
-
+             <span > New User? {" "} 
+            <Link className="text-secondary" to='/register' > 
+            Go to Register
+            </Link></span>
             </div>
             <div class="divider">OR</div>
             <div class="form-control">
-              <button onClick={handleGoogleSignIn} class="btn btn-primary">
+              <button onClick={handleGoogleSignIn} class="btn btn-primary btn-outline">
                 <img className="mr-4" style={{width: "30px"}} src={GoogleIcon} alt="" />
                 SignInWith
                 </button>

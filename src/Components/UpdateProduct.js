@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { NavLink, useParams } from "react-router-dom";
 
-const AddNewProduct = () => {
+const UpdateProduct = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState({});
+  useEffect(() => {
+    {
+      const url = `http://localhost:5000/product/${id}`;
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => setProduct(data));
+    }
+  }, []);
 
-  const handleAddProduct = (event) => {
+  const handleProductUpdate = (event) => {
+    
     event.preventDefault();
     const name = event.target.name.value;
     const picture = event.target.picture.value;
@@ -12,7 +24,8 @@ const AddNewProduct = () => {
     const availableQty = event.target.availableQty.value;
     const description = event.target.description.value;
     const price = event.target.price.value;
-    const productInfo = {
+
+    const updateProductInfo = {
       name,
       picture,
       orderQty,
@@ -22,17 +35,18 @@ const AddNewProduct = () => {
       price,
     };
 
-    fetch("http://localhost:5000/products", {
-      method: 'POST',
+    const url = `http://localhost:5000/product/${id}`;
+    fetch(url, {
+      method: "PUT",
       headers: {
-        'content-type': 'application/json',
+        "content-type": "application/json", /// have some problem
       },
-      body: JSON.stringify(productInfo),
+      body: JSON.stringify(updateProductInfo),
     })
-      .then( res => res.json())
-      .then( data => {
-        console.log("successfully", data);
-        toast("successfully adding new data to server", data);
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("success", data);
+        toast("successfully updating product to server", data);
         event.target.reset();
       });
   };
@@ -40,13 +54,14 @@ const AddNewProduct = () => {
   return (
     <div class="h-screen flex justify-center items-center">
       <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-        <form onSubmit={handleAddProduct} class="card-body">
-          <h2 className="text-3xl text-primary"> Add New product</h2>
+        <form onSubmit={handleProductUpdate} class="card-body">
+          <h2 className="text-2xl text-primary"> Updating Product : {product.name} </h2>
           <input
             type="text"
             name="name"
             placeholder="Product name"
             class="input input-bordered"
+            
           />
           <input
             type="text"
@@ -95,4 +110,4 @@ const AddNewProduct = () => {
   );
 };
 
-export default AddNewProduct;
+export default UpdateProduct;

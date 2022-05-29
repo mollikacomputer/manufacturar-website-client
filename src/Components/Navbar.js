@@ -46,22 +46,7 @@ const Navbar = ({ children }) => {
           Register
         </NavLink>
       </li>
-      <li className="dropdown dropdown-hover dropdown-end">
-        <label tabindex="0" class="btn btn-primary btn-outline rounded-lg ">
-          BOOK NOW
-        </label>
-        <ul
-          tabindex="0"
-          class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
-        >
-          <li>
-            <NavLink to="/">Item 1</NavLink>
-          </li>
-          <li>
-            <NavLink to="/">Item 2</NavLink>
-          </li>
-        </ul>
-      </li>
+      
       <label class="swap swap-rotate">
         <input type="checkbox" onClick={() => setDark(!dark)} />
 

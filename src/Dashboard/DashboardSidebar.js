@@ -13,18 +13,22 @@ const DashboardSidebar = () => {
         <label for="my-drawer-2" class="drawer-overlay"></label>
         <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
-          <li className="mb-4">
+          <li className="mb-2">
             <NavLink to='/dashboard/' >AddService</NavLink>
           </li>
-          <li>
+          <li className="mb-2">
             <NavLink to="/dashboard/addadmin" >Add Admin</NavLink>
           </li>
-          <li>
+          <li className="mb-2">
             <NavLink to="/dashboard/manageproducts" >Manage Products</NavLink>
           </li>
-          <li>
+          <li className="mb-2">
             <NavLink to="/dashboard/addnewproduct" >Add New Product</NavLink>
           </li>
+          <li className="mb-2">
+            <NavLink to="/dashboard/updateproduct" >Update Product</NavLink>
+          </li>
+ 
         </ul>
       </div>
     </div>

@@ -1,13 +1,34 @@
 import React, { useEffect, useState } from "react";
 import fetcher from "../api";
-import Product from "../Components/Product";
-import AddProduct from "./AddProduct";
+import ManageProduct from "./ManageProduct";
+
 
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetcher.get("/products").then((res) => setProducts(res.data));
+    fetch('http://localhost:5000/products/')
+    .then(res => res.json())
+    .then(data => setProducts(data))
   }, []);
+
+  const handleDeleteProduct = id =>{
+    const proceed = window.confirm('Are you sure you want to delete Product?');
+    if(proceed){
+      console.log('deleting product with id', id);
+      const url = `http://localhost:5000/products/${id}`;
+      fetch(url, {
+        method: 'DELETE'
+      })
+      .then( res => res.json())
+      .then( data => {
+        if(data.deletedCount > 0){
+          console.log('deleted');
+          const remaining = products.filter( product => product._id !== id );
+          setProducts(remaining);
+        }
+      } )
+    }
+  }
   // console.log(products);
   return (
     <div class="overflow-x-auto">
@@ -15,10 +36,11 @@ const ManageProducts = () => {
           {/* <!-- head --> */}
           <thead>
             <tr>
-              <th>Name</th>
               <th>picture</th>
-              <th>Quantity</th>
               <th>Price</th>
+              {/* <th>Name</th> */}
+              <th>Available</th>
+              <th>Min Order</th>
               <th>Edit</th>
               <th>Add</th>
               <th>Delete</th>
@@ -26,13 +48,13 @@ const ManageProducts = () => {
           </thead>
           
             {/* <!-- row 1 --> */}
-            
             {
-                products.map( product => <AddProduct
-                key = {product.id}
+                products.map( product => <ManageProduct
+                key = {product._id}
                 product = {product}
+                handleDeleteProduct ={handleDeleteProduct}
                 >
-                </AddProduct>)
+                </ManageProduct>)
             }
      </table>
     </div>

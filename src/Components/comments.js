@@ -6,7 +6,9 @@ const Comments = () => {
   return (
 
     <div>
+      <span className="flex justify-center items-center" >
       <h2 className="text-5xl text-primary"> Public reaction</h2>
+      </span>
     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-16">
       <div class="card bg-base-100 shadow-xl p-4">
         <div>

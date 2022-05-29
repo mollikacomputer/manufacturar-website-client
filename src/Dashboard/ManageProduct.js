@@ -1,20 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const AddProduct = (props) => {
-  const { price, description, quantity, minimumorder, orderqty, picture } =
-    props.product;
+const ManageProduct = ({product, handleDeleteProduct}) => {
+  const { price, availableQty, minimumOrderQty, picture} = product;
+
 
   return (
     <>
       <tbody>
         <tr>
-          <td>{picture}</td>
-          <td>{description}</td>
-          <td>{quantity}</td>
-          <td>{minimumorder} </td>
-          <td> ${price} </td>
-          <td>{orderqty} </td>
+          <td>
+            <img style={{width: "30px"}} src={picture} alt="" />
+          </td>
+          <td>${price} </td>
+          <td>{availableQty} pcs</td>
+          <td>{minimumOrderQty} </td>
           <td>
           <NavLink to="/dashboard/updateproduct" >
             <svg
@@ -51,7 +51,8 @@ const AddProduct = (props) => {
             </svg>
             </NavLink>
           </td>
-          <td>
+          <td className="cursor-pointer">
+            
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6"
@@ -59,6 +60,7 @@ const AddProduct = (props) => {
               viewBox="0 0 24 24"
               stroke="currentColor"
               stroke-width="2"
+              onClick={() => handleDeleteProduct(product._id)}
             >
               <path
                 stroke-linecap="round"
@@ -73,4 +75,4 @@ const AddProduct = (props) => {
   );
 };
 
-export default AddProduct;
+export default ManageProduct;

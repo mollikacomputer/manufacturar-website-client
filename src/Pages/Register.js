@@ -7,16 +7,20 @@ import React, { useState } from "react";
 import app from "../firebase.init";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import useToken from "../Hooks/useToken";
 
 const auth = getAuth(app);
 
 const Register = () => {
-  const [username, setUsername] = useState();
+
+  const [user, setUser] = useState();
   const [password, setPassword] = useState();
   const [email, setEmail] = useState();
+  
+  const [token] = useToken(user);
 
   const handleUserNameBlur = (e) => {
-    setUsername(e.target.value);
+    setUser(e.target.value);
   };
 
   const handleEmailBlur = (e) => {
@@ -38,7 +42,9 @@ const Register = () => {
       .catch((error) => {
         console.error(error);
       });
-    console.log(username, password, email);
+    console.log(user, password, email);
+    toast('Successfully created new google user');
+    e.target.reset();
   };
 
   return (

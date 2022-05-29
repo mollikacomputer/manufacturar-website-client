@@ -17,6 +17,7 @@ import AdminRoute from "./Hooks/AdminRoute";
 import ProtectedByAdmin from "./Authentication/ProtectedByAdmin";
 import AddNewProduct from "./Components/AddNewProduct";
 import ManageProducts from "./Dashboard/ManageProducts";
+import UpdateProduct from "./Components/UpdateProduct";
 
 function App() {
   // for animation
@@ -49,6 +50,7 @@ function App() {
               <Route path="addadmin" element={<AddAdmin />}></Route>
               <Route path="manageproducts" element={<ManageProducts />} />
               <Route path="addnewproduct" element={<AddNewProduct />} />
+              <Route path="updateproduct" element={<UpdateProduct />} />
             </Route>
           </Route>
 
