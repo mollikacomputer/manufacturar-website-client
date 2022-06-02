@@ -28,6 +28,7 @@ const Status = () => {
       name: "Publick actions",
     },
   ];
+  
   return (
     <div className="my-16 items-center justify-center">
         <h2 className="text-2xl md:text-5xl text-primary flex justify-center items-center">
